@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPI.BCM)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 trig = 23

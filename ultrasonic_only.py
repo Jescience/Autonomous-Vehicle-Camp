@@ -4,8 +4,8 @@ import time
 GPIO.setmode(GPI.BCM)
 GPIO.setwarnings(False)
 
-trig=23
-echo=24
+trig = 23
+echo = 24
 GPIO.setup(echo, GPIO.IN)
 GPIO.setup(trig, GPIO.OUT)
 

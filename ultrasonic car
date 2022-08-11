@@ -99,19 +99,19 @@ while True:
       stop()
       time.sleep(1)
 
-    back()
-    time.sleep(1.5)
+      back()
+      time.sleep(1.5)
 
-    if (count%3 ==1) & (flag==0):
-     right()
-     flag=1
-    else:
-     left()
-     flag=0
-    time.sleep(1.5)
-    stop()
-    time.sleep(1)
+      if (count%3 ==1) & (flag==0):
+        right()
+        flag=1
+      else:
+        left()
+        flag=0
+      time.sleep(1.5)
+      stop()
+      time.sleep(1)
 
- else:
-    forward()
-    flag=0
+  else:
+      forward()
+      flag=0

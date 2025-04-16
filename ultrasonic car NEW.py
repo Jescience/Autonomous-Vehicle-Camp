@@ -10,7 +10,7 @@ ECHO = 27    #pin number on raspberry pi that echo on the ultrasonic sensor is c
 in1=16   #pin number on raspberry pi that motor controller in1 is connected to
 in2=12   #pin number on raspberry pi that motor controller in2 is connected to
 in3=21   #pin number on raspberry pi that motor controller in3 is connected to
-in4=20   #pin number on raspberry pi that motor controller in4 is connected to
+in4=5   #pin number on raspberry pi that motor controller in4 is connected to
 
 GPIO.setup(TRIG,GPIO.OUT)  #indicating that trig is an output                
 GPIO.setup(ECHO,GPIO.IN)    #indicating that echo is an input
@@ -21,7 +21,7 @@ GPIO.setup(in3,GPIO.OUT)   #indicating that in3 is an output
 GPIO.setup(in4,GPIO.OUT)   #indicating that in4 is an output
 
 def stop():               #define what stop means
-   print "stop"            #print word stop on computer screen
+   print ("stop")         #print word stop on computer screen
    GPIO.output(in1, 0)   # no power going to in1
    GPIO.output(in2, 0)   # no power going to in2
    GPIO.output(in3, 0)   # no power going to in3
@@ -55,16 +55,16 @@ stop()  # Calls the stop() function, likely to stop any movement initially
 count = 0  # Initializes a counter variable to keep track of some event occurrences
 
 while True:  # Infinite loop to continuously measure distance and take actions
-    GPIO.output(trig, True)  # Sends a short pulse from the trigger pin
+    GPIO.output(TRIG, True)  # Sends a short pulse from the trigger pin
     time.sleep(0.00001)  # Waits for 10 microseconds (required for ultrasonic sensor)
-    GPIO.output(trig, False)  # Turns off the trigger signal
+    GPIO.output(TRIG, False)  # Turns off the trigger signal
 
-    while GPIO.input(echo) == 0:  # Waits for the echo pin to receive the signal
+    while GPIO.input(ECHO) == 0:  # Waits for the echo pin to receive the signal
         pass  # Does nothing, just waits
 
     start = time.time()  # Records the time when the echo signal is received
 
-    while GPIO.input(echo) == 1:  # Waits for the echo signal to go low again
+    while GPIO.input(ECHO) == 1:  # Waits for the echo signal to go low again
         pass  # Does nothing, just waits
 
     end = time.time()  # Records the time when the echo signal stops
